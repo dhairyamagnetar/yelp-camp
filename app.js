@@ -1,6 +1,4 @@
-if (process.env.NODE_ENV !== 'production') {
-    require('dotenv').config();
-}
+require('dotenv').config();
 
 const express = require('express');
 const mongoose = require('mongoose');
@@ -23,6 +21,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const dbUrl = process.env.DB_URL;
 
+console.log("Connecting to db: ", dbUrl);
 mongoose.connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
 
 const db = mongoose.connection;
